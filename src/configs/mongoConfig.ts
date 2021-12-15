@@ -3,7 +3,7 @@ import { TypegooseModuleOptions } from 'nestjs-typegoose';
 
 export const getMongoConfig = async (configService: ConfigService): Promise<TypegooseModuleOptions> => {
 	return {
-		uri: "mongodb+srv://test:izO9djIthUXyjtGj@cluster0.kmkgv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+		uri: "mongodb+srv://test:<password>@cluster0.kmkgv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
 		// getMongoString(configService),
 		...getMongoOptions()
 	}

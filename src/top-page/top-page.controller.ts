@@ -1,5 +1,4 @@
 import { Body, Controller, Delete, Get, HttpCode, NotFoundException, Param, Patch, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
-import { FindProductDto } from 'src/product/dto/find.product.dto';
 import { TopPageModel } from './top-page.model';
 import { FindTopPageDto } from './dto/find-top-page.dto';
 import { TopPageService } from './top-page.service';
@@ -36,6 +35,8 @@ export class TopPageController {
 		if (!deletedPage) {
 			throw new NotFoundException(NOT_FOUND_TOP_PAGE_ERROR)
 		}
+
+		return "Page was deleted"
 	}
 
 	@UseGuards(JWTAuthGuard)
@@ -45,10 +46,12 @@ export class TopPageController {
 		if (!updatedPage) {
 			throw new NotFoundException(NOT_FOUND_TOP_PAGE_ERROR)
 		}
+
+		return updatedPage
 	}
 
 	@Get(':byAlias/:alias')
-	async getByAlias(@Param('id') alias: string) {
+	async getByAlias(@Param('alias') alias: string) {
 		const page = await this.topPageService.findByAlias(alias)
 		if (!page) {
 			throw new NotFoundException(NOT_FOUND_TOP_PAGE_ERROR)
@@ -62,5 +65,10 @@ export class TopPageController {
 	@Post('find')
 	async find(@Body() dto: FindTopPageDto) {
 		return this.topPageService.findByCategory(dto.firstCategory)
+	}
+
+	@Get('textSearch/:text')
+	async textSearch(@Param("text") text: string) {
+		return this.topPageService.findByText(text)
 	}
 }

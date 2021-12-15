@@ -1,5 +1,5 @@
 import { prop } from '@typegoose/typegoose';
-import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
+import { TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 import { Type } from 'class-transformer';
 import { IsArray, IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { TopLevelCategory } from '../top-page.model';
@@ -27,6 +27,7 @@ export class TopPageAdvantageDto {
 }
 
 export class CreateTopPageDto extends TimeStamps {
+
 	@IsEnum(TopLevelCategory)
 	firstCategory: TopLevelCategory;
 

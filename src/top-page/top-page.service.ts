@@ -21,8 +21,29 @@ export class TopPageService {
 		return this.topPageModel.findOne({ alias }).exec()
 	}
 
+	// async findByCategory(firstCategory: TopLevelCategory) {
+	// 	return this.topPageModel.aggregate([
+	// 		{
+	// 			$match: {
+	// 				firstCategory
+	// 			}
+	// 		},
+	// 		{
+	// 			$group: {
+	// 				_id: { secondCategory: '$secondCategory' },
+	// 				// _id: { secondCategory: '$secondCategory' },
+	// 				pages: { $push: { alias: '$alias', title: "$title" } }
+	// 			}
+	// 		}
+	// 	]).exec();
+	// }
+
 	async findByCategory(firstCategory: TopLevelCategory) {
 		return this.topPageModel.find({ firstCategory }, { alias: 1, secondCategory: 1, title: 1 }).exec()
+	}
+
+	async findByText(text: string) {
+		return this.topPageModel.find({ $text: { $search: text, $caseSensitive: false } }, { alias: 1, secondCategory: 1, title: 1 }).exec()
 	}
 
 	async deleteById(id: string) {
@@ -30,7 +51,7 @@ export class TopPageService {
 	}
 
 	async updateById(id: string, dto: CreateTopPageDto) {
-		return this.topPageModel.findByIdAndUpdate(id, dto, { new: true }).exec()
+		return this.topPageModel.findByIdAndUpdate(id, dto, { new: true, lean: true }).exec()
 	}
 
 }

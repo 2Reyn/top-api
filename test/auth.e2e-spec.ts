@@ -6,7 +6,7 @@ import { AuthDto } from 'src/auth/dto/auth.dto';
 import * as request from 'supertest';
 
 const loginDto: AuthDto = {
-	login: 'evdeal13@gmail.com',
+	login: 'afaffaaf@gmail.com',
 	password: '12345678'
 }
 
@@ -41,7 +41,7 @@ describe('AuthController (e2e)', () => {
 			.send({ ...loginDto, password: '2' })
 			.expect(401, {
 				statusCode: 401,
-				message: 'Неверный пароль',
+				message: 'Invalid password',
 				error: "Unauthorized"
 			})
 	});
@@ -52,7 +52,7 @@ describe('AuthController (e2e)', () => {
 			.send({ ...loginDto, login: 'aaa@a.ru' })
 			.expect(401, {
 				statusCode: 401,
-				message: 'Пользователь с таким email не найден',
+				message: 'User with this email was not found',
 				error: "Unauthorized"
 			})
 	});

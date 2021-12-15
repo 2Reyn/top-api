@@ -33,7 +33,7 @@
     "class-validator": "^0.13.1",
     "mongodb": "^4.2.2",
     "mongodb-memory-server-global-4.4": "^8.0.4",
-    "mongoose": "^6.0.12",
+    "mongoose": "^6.1.2",
     "nestjs-typegoose": "^7.1.38",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",

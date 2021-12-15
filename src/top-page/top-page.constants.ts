@@ -1,1 +1,1 @@
-export const NOT_FOUND_TOP_PAGE_ERROR = 'Страница с таким id не найдена'
+export const NOT_FOUND_TOP_PAGE_ERROR = 'Page was not found'

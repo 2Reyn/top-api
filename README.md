@@ -46,4 +46,4 @@ $ npm run test:cov
 ## Stay in touch
 
 - Author - [Denis Evtushenko]https://github.com/2Reyn
-- Website - [https://reyn.vercel.app/]https://reyn.vercel.app/
+- Website - https://reyn.vercel.app/

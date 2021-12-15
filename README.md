@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Api for internet shop with search, sort, reviews, authorization and etc
 
 ## Installation
 

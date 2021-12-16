@@ -9,7 +9,7 @@
 
 ## Description
 
-This is very usefull API for internet services. This API includes: search, reviews, pages, test, products pages, authorization and etc. All that you will need is to connect you MongoDB
+This is very usefull API for internet services. This API includes: search, reviews, pages, test, products pages, authorization and etc. All that you will need is to connect your MongoDB
 
 ## Installation
 
